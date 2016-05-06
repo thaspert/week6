@@ -2,6 +2,7 @@ Director.delete_all
 Movie.delete_all
 Actor.delete_all
 Role.delete_all
+User.delete_all
 
 george = Director.create(:name => "George Lucas", :photo_url => "http://ia.media-imdb.com/images/M/MV5BMTA0Mjc0NzExNzBeQTJeQWpwZ15BbWU3MDEzMzQ3MDI@._V1_UY317_CR0,0,214,317_AL_.jpg")
 ron = Director.create(:name => "Ron Howard", :photo_url => "http://ia.media-imdb.com/images/M/MV5BMTkzMDczMjUxNF5BMl5BanBnXkFtZTcwODY1Njk5Mg@@._V1_UX214_CR0,0,214,317_AL_.jpg")
@@ -104,6 +105,12 @@ Role.create(movie_id: guardians.id, actor_id: dave.id, character_name: "Drax")
 Role.create(movie_id: guardians.id, actor_id: vin.id, character_name: "Groot")
 Role.create(movie_id: guardians.id, actor_id: bradley.id, character_name: "Rocket")
 
+User.create name: 'Margaret Hamilton', email: 'margaret@example.org', password: 'apollo'
+User.create name: 'Grace Hopper', email: 'grace@example.org', password: 'cobol'
+User.create name: 'Alan Turing', email: 'alan@example.org', password: 'imitationgame'
+User.create name: 'Cookie Monster', email: 'cookie@example.org', password: 'cookies'
+
 print "There are now #{Movie.count} movies in the database.\n"
 print "There are now #{Director.count} directors in the database.\n"
 print "There are now #{Actor.count} actors in the database.\n"
+print "There are now #{User.count} users in the database.\n"

@@ -1,9 +1,9 @@
 <h1>Sign In</h1>
 
-<%= form_for User.new do |f| %>
+<%= form_tag "/sessions" do  %>
 
-  <p><%= f.label :email %><%= f.text_field :email, autofocus: true, size: 40, required: true %></p>
-  <p><%= f.label :password %><%= f.text_field :password, size: 40, required: true %></p>
-  <p><%#= f.submit "Sign Me Up!" %></p>
+  <p><%= label_tag :email %><%= text_field_tag :email, '', autofocus: true, size: 40, required: true %></p>
+  <p><%= label_tag :password %><%= text_field_tag :password, '', size: 40, required: true %></p>
+  <p><%= submit_tag "Sign Me Up!" %></p>
 
 <% end %>

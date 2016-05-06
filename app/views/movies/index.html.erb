@@ -1,0 +1,9 @@
+<aside>
+  <h3>Recommended For You</h3>
+  <%= render Movie.sample %>
+</aside>
+
+<div class="movie-selections">
+  <%= render 'movie', movie: nil %>
+  <%= render @movies %>
+</div>

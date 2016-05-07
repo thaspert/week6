@@ -8,15 +8,18 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user
       if user.password == params[:password]
-        # They have been authenticated!
+        cookies["user_id"] = user.id
         redirect_to movies_url
+        return
       end
     end
     redirect_to movies_url
   end
 
   def destroy
-
+    cookies.delete("user_id")
+    reset_session
+    redirect_to movies_url
   end
 
 end

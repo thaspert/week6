@@ -19,8 +19,12 @@
       <% end %>
     </ul>
     <ul class="nav-right">
-      <li><%= link_to "Sign Up", new_user_path %></li>
-      <li><%= link_to "Sign In", login_path %></li>
+      <% if cookies["user_id"].present? %>
+        <li><%= link_to "Sign Out", logout_path %></li>
+      <% else %>
+        <li><%= link_to "Sign Up", new_user_path %></li>
+        <li><%= link_to "Sign In", login_path %></li>
+      <% end %>
     </ul>
   </nav>
 

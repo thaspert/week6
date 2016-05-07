@@ -6,7 +6,20 @@ class MoviesController < ApplicationController
       @movies = @movies.where("title LIKE '%#{params[:keyword]}%'")
     end
 
-    render 'index'  # This would be implied by default
+    respond_to do |format|
+      format.html do
+        render 'index'
+      end
+      format.json do
+        render json: @movies
+      end
+      format.xml do
+        render xml: @movies
+      end
+    end
+
+
+    # render 'index'  # Render index.html.erb
   end
 
   def create
@@ -25,6 +38,7 @@ class MoviesController < ApplicationController
     if @movie == nil
       redirect_to movies_url
     end
+    cookies["movie_id"] = @movie.id
   end
 
   def new

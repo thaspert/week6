@@ -1,6 +1,12 @@
+<%= User.find_by(id: cookies["user_id"]).name if cookies["user_id"].present? %>
+
 <aside>
   <h3>Recommended For You</h3>
-  <%= render Movie.sample %>
+  <% if cookies["movie_id"].present? %>
+    <%= render Movie.find_by(id: cookies["movie_id"]) %>
+  <% else %>
+    <%= render Movie.sample %>
+  <% end %>
 </aside>
 
 <div class="movie-selections">

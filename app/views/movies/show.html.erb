@@ -30,6 +30,9 @@
 
   <%= form_tag "/reviews", :method => :post do %>
     <%= label_tag :body, "What did you think?" %>
+    <!-- <input type="hidden" name="movie_id" value="<%= @movie.id %>"> -->
+    <%= hidden_field_tag :movie_id, @movie.id %>
+    
     <br>
     <%= text_area_tag :body, '', rows: 4, cols: 50 %>
     <br>
